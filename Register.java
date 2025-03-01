@@ -4,7 +4,8 @@ import java.awt.Font;
  
 public class Register {
     public Register(){
-        //amo ni ang gin saylo from register
+        //need padi gali ang current date amo na ang ma print sa date of registration
+        // nga wala ko na put then ang renewal date kun san o sila dapat ma renew
         JFrame frame=new JFrame("Certificate of Registration");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(630,700);
