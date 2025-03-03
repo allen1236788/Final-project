@@ -1,136 +1,136 @@
 import javax.swing.*;
 import java.awt.event.*;
+
+
 import java.awt.Font;
-
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
-
  
-public class Register {
-    public Register(String lname, String fname, String mname, String suffix,
-    String bday, String age, String sex, String address, String contact){
+public class Register{
+    
+    public Register(String lastname, String firstname, String middlename, String Ssuffix,
+    String birthday, String Aage, String Ssex, String Aaddress, Long CcontactN){
 
-        //need padi gali ang current date amo na ang ma print sa date of registration
-        // nga wala ko na put then ang renewal date kun san o sila dapat ma renew
-        JFrame frame=new JFrame("Certificate of Registration");
+    
+        JFrame frame=new JFrame("Registration");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(630,700);
-
-
         frame.setLayout(null);
 
 
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter date = DateTimeFormatter.ofPattern("MM/dd/yy");
-        String dateOfReg = currentDate.format(date);  
-        LocalDate renewalD = currentDate.plusYears(1);
-        String renewalDate = date.format(renewalD);
-       
+     
         JLabel labelKind=new JLabel("Kind of Vehicle: ");
-        labelKind.setBounds(30,80,150,30);
+        labelKind.setBounds(50,80,150,30);
         frame.add(labelKind);
        
-        JLabel labelMiddleName=new JLabel("Make: ");
-        labelMiddleName.setBounds(340,80,150,30);
-        frame.add(labelMiddleName);
+        JLabel VehicleMake=new JLabel("Vehicle Make: ");
+        VehicleMake.setBounds(195,160,150,30);
+        frame.add(VehicleMake);
  
-        JLabel labelLastName=new JLabel("Model: ");
-        labelLastName.setBounds(30,180,100,30);
-        frame.add(labelLastName);
+        JLabel VehicleModel=new JLabel("Vehicle Model: ");
+        VehicleModel.setBounds(390,160,150,30);
+        frame.add(VehicleModel);
 
 
-        JLabel DateRegistered=new JLabel("Date Registered: ");
-        DateRegistered.setBounds(50,300,200,200);
-        frame.add(DateRegistered);
+        JLabel VehicleDate=new JLabel("Vehicle Model Year: ");
+        VehicleDate.setBounds(50,160,150,30);
+        frame.add(VehicleDate);
 
-        JLabel RenewalDate=new JLabel("Renewal Date: ");
-        RenewalDate.setBounds(360,300,200,200);
-        frame.add(RenewalDate);
 
-        JLabel labelBday=new JLabel("Vehicle Classification: ");
-        labelBday.setBounds(340,180,200,30);
-        frame.add(labelBday);
-
+        JLabel VehicleClassification=new JLabel("Vehicle Classification:");
+        VehicleClassification.setBounds(280,80,300,30);
+        frame.add(VehicleClassification);
        
-        JLabel VehicleLicense=new JLabel("Vehicle License Plate Number");
-        VehicleLicense.setBounds(30,290,200,30);
+        JLabel VehicleLicense=new JLabel("Vehicle License Plate Number:");
+        VehicleLicense.setBounds(50,170,300,200);
         frame.add(VehicleLicense);
-       
 
 
-        String[]kind={"Sedan","Motorcyle","Truck","SUV"};
-        JComboBox<String>vehiclekind=new JComboBox<>(kind);
-        vehiclekind.setBounds(30,110,250,40);
-        frame.add(vehiclekind);
 
-        String[]classi={"Private","Government","Diplomatic"};
-        JComboBox<String>vehicleclass=new JComboBox<>(classi);
-        vehicleclass.setBounds(340,220,250,40);
-        frame.add(vehicleclass);
-        
-        //Make
-        JTextField textFieldMiddleName=new JTextField();
-        textFieldMiddleName.setBounds(340,110,250,40);
-        frame.add(textFieldMiddleName);
+        JTextField textFieldDateReleased = new JTextField();
+        textFieldDateReleased.setBounds(50,200,120,40);  
+        frame.add(textFieldDateReleased);
 
 
-        //Model
-        JTextField textFieldLastName=new JTextField();
-        textFieldLastName.setBounds(30,220,250,40);
-        frame.add(textFieldLastName);
-
-        JTextField textFieldDateRegistered=new JTextField(dateOfReg);
-        textFieldDateRegistered.setBounds(50,420,200,40);
-        textFieldDateRegistered.setEditable(false);
-        frame.add(textFieldDateRegistered);
 
 
-        JTextField textFieldRenewalDate=new JTextField(renewalDate);
-        textFieldRenewalDate.setBounds(360,420,200,40);
-        textFieldRenewalDate.setEditable(false);
-        frame.add(textFieldRenewalDate);
-        
-        JTextField textFieldVehicleLicense=new JTextField();
-        textFieldVehicleLicense.setBounds(30,330,250,40);
-        frame.add(textFieldVehicleLicense);
+        JTextField textFieldVehiclePlate = new JTextField();
+        textFieldVehiclePlate.setBounds(50,290,200,40);  
+        frame.add(textFieldVehiclePlate);
 
 
-        
 
 
-JButton buttonS= new JButton("REGISTER");
-buttonS.setBounds(190,500,250,80);
-frame.add(buttonS);
+        String[]Classification={"Private","Government","Diplomatic"};
+        JComboBox<String>vehicleClass=new JComboBox<>(Classification);
+        vehicleClass.setBounds(280,110,280,40);
+        frame.add(vehicleClass);
 
 
-JTextArea textArea= new JTextArea();
-textArea.setBounds(0,0,0,0);
-textArea.setEditable(false);
-frame.add(textArea);
-
-buttonS.addActionListener(new ActionListener(){
-    @Override
-       
-    public void actionPerformed(ActionEvent e){
-        String Lname = lname;
-        String Fname = fname;
-        String Mname = mname;
-        String Suffix = suffix;
-        String Bday = bday;
-        String Age = age;
-        String Sex = sex;
-        String Address = address;
-        String Contact = contact;
-
-        new Certificate(Lname, Fname, Mname, Suffix, Bday, Age, Sex, Address, Contact);
-    }
-});
+        String[]Kind={"Sedan","Motorcyle","Truck","SUV"};
+        JComboBox<String>vehicleKind=new JComboBox<>(Kind);
+        vehicleKind.setBounds(50,110,200,40);
+        frame.add(vehicleKind);
 
 
-// Set the frame visible
-frame.setVisible(true);
-}
-     
-}
+        JTextField textFieldVehicleMake = new JTextField();
+        textFieldVehicleMake.setBounds(195,200,170,40);  
+        frame.add(textFieldVehicleMake);
+
+
+
+
+        JTextField textFieldVehicleModel = new JTextField();
+        textFieldVehicleModel.setBounds(390,200,170,40);  
+        frame.add(textFieldVehicleModel);
+
+
+
+
+        JButton buttonS= new JButton("REGISTER");
+        buttonS.setBounds(185,520,250,80);
+        frame.add(buttonS);
+
+        buttonS.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            try{
+                String Lname = lastname;
+                String Fname = firstname;
+                String Mname = middlename;
+                String Suffix = Ssuffix;
+                String Bday = birthday;
+                String Age = Aage;
+                String Sex = Ssex;
+                String Address = Aaddress;
+                Long Contact = CcontactN;
+                String Kind = (String) vehicleKind.getSelectedItem();
+                String Make = textFieldVehicleMake.getText();
+                String Model = textFieldVehicleModel.getText();
+                String DateReleased = textFieldDateReleased.getText();
+                String Classification = (String) vehicleClass.getSelectedItem();      
+                String License = textFieldVehiclePlate.getText();
+                if(Make.isEmpty()|| Kind.isEmpty()|| Model.isEmpty() || DateReleased.isEmpty() || Classification.isEmpty() || License.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    /* int DateR=Integer.parseInt(DateReleased); */
+                    if(DateReleased.length()!=4){
+                    JOptionPane.showMessageDialog(null, "Invalid year!");
+                    }else{
+                    new Certificate(Lname, Fname, Mname, Suffix, Bday, Age, Sex, Address,
+                    Contact, Kind, Make, Model, DateReleased, Classification,
+                    License);
+                    }
+                }
+            } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null,"Invalid Input, Please enter number only!");
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null,"Invalid Input, Please enter letters only!");
+            }
+            }    
+        });
+
+        frame.setVisible(true);
+        }
+      
+            }
+
