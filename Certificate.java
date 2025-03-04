@@ -3,26 +3,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.Font;
  
-
-
 public class Certificate {
-
 
     public Certificate(String Lname, String Fname, String Mname, String Suffix,
     String Bday, String Age, String Sex, String Address, String Contact, String Kind,
     String Make, String Model, String DateReleased, String Classification,
     String License) {
            
-
-
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter date = DateTimeFormatter.ofPattern("MM/dd/yy");
         String dateOfReg = currentDate.format(date);  
         LocalDate renewalD = currentDate.plusYears(1);
         String renewalDate = date.format(renewalD);
-
-
-
 
         JFrame frame=new JFrame("Certificate of Registration");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,24 +30,13 @@ public class Certificate {
         labelDateRegistered.setBounds(40,120,532,45);
         frame.add(labelDateRegistered);
 
-
         JLabel labelRenewalDate=new JLabel("Renewal Date: " + renewalDate);
         labelRenewalDate.setBounds(40,507,532,45);
         frame.add(labelRenewalDate);
 
-
         JLabel labelAmount=new JLabel("Amount: PHP 3500.00");
         labelAmount.setBounds(430,507,532,45);
         frame.add(labelAmount);
-
-
-
-
-
-
-
-
-
 
         JTextField textFieldName=new JTextField("   Name: " + Fname + " " + Mname + " " + Lname + " " + Suffix);
         textFieldName.setBounds(40,183,444,45);
@@ -72,16 +53,10 @@ public class Certificate {
         textFieldBday.setEditable(false);
         frame.add(textFieldBday);
 
-
-
-
         JTextField textFieldAge=new JTextField("   Age: " + Age);
         textFieldAge.setBounds(208,226,98,45);
         textFieldAge.setEditable(false);
         frame.add(textFieldAge);
-
-
-
 
         JTextField textFieldContact=new JTextField("   Contact Number: " + Contact);
         textFieldContact.setBounds(305,226,267,45);
@@ -108,16 +83,10 @@ public class Certificate {
         textFieldLicense.setEditable(false);
         frame.add(textFieldLicense);
 
-
-
-
         JTextField textFieldMake=new JTextField("   Vehicle Make: " + Make);
         textFieldMake.setBounds(40,400,267,45);
         textFieldMake.setEditable(false);
         frame.add(textFieldMake);
-
-
-
 
         JTextField textFieldModel=new JTextField("   Vehicle Model: " + Model);
         textFieldModel.setBounds(305,400,267,45);
@@ -129,13 +98,7 @@ public class Certificate {
         textFieldDateReleased.setEditable(false);
         frame.add(textFieldDateReleased);
        
-   
         frame.setVisible(true);
    
     }
 }
-
-
-
-
-
