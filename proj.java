@@ -13,28 +13,21 @@ public class proj {
         frame.setSize(630,700);
         frame.setLayout(null);
  
-
-
-
-
         JLabel PersonalInfo = new JLabel("Personal Information");
         PersonalInfo.setBounds(50, 60, 150,100);
         PersonalInfo.setFont(new Font("Arial", Font.BOLD, 13));
         frame.add(PersonalInfo);
-
 
         JLabel Welcome = new JLabel("Vehicle Registration Form");
         Welcome.setBounds(200,0,200,100);
         Welcome.setFont(new Font("Arial", Font.BOLD, 16));
         frame.add(Welcome);
 
-
         JLabel InstructionOne=new JLabel("* If no available answer,type N/A for all fields except for 'Suffix'. For 'Suffix' leave it blank");
         InstructionOne.setBounds(50,450,600,30);
         InstructionOne.setFont(new Font("Arial",Font.ITALIC,12));
         InstructionOne.setForeground(Color.RED);
         frame.add(InstructionOne);
-
 
         JLabel InstructionTwo=new JLabel("* Double check your information as you cannot go back to this tab");
         InstructionTwo.setBounds(50,480,500,30);
@@ -54,7 +47,6 @@ public class proj {
         labelLastName.setBounds(89,200,100,20);
         frame.add(labelLastName);
 
-
         JLabel labelSuffix=new JLabel("Suffix ");
         labelSuffix.setBounds(506,200,50,20);
         frame.add(labelSuffix);
@@ -71,38 +63,25 @@ public class proj {
         labelSex.setBounds(50,306,150,30);
         frame.add(labelSex);  
 
-
         JLabel labelAddress=new JLabel("Address: ");
         labelAddress.setBounds(50,360,150,30);
         frame.add(labelAddress);  
-
 
         JLabel labelContact=new JLabel("Contact Number:");
         labelContact.setBounds(50,413,150,30);
         frame.add(labelContact);
        
-
-
-
-
-
-
-
-
         JTextField textFieldLastName=new JTextField();
         textFieldLastName.setBounds(50,140,150,50);
         frame.add(textFieldLastName);
-
 
         JTextField textFieldMiddleName=new JTextField();
         textFieldMiddleName.setBounds(200,140,100,50);
         frame.add(textFieldMiddleName);
 
-
         JTextField textFieldFirstName=new JTextField();
         textFieldFirstName.setBounds(300,140,150,50);
         frame.add(textFieldFirstName);
-
 
         JTextField textFieldSuffix=new JTextField();
         textFieldSuffix.setBounds(500,140,50,50);
@@ -116,14 +95,6 @@ public class proj {
         textFieldAge.setBounds(500,250,50,30);
         frame.add(textFieldAge);
 
-
-
-
-
-
-
-
-       
         String[]items={"","MALE","FEMALE","OTHER"};
         JComboBox<String> Sex=new JComboBox<>(items);
         Sex.setBounds(190,306,240,30);
@@ -137,25 +108,13 @@ public class proj {
         textFieldContact.setBounds(190,415,240,30);
         frame.add(textFieldContact);
  
- 
- 
         JButton buttonRenew= new JButton("RENEW");
         buttonRenew.setBounds(80,530,180,70);
         frame.add(buttonRenew);
 
-
-
-
         JButton buttonRegisterButton= new JButton("REGISTER");
         buttonRegisterButton.setBounds(350,530,180,70);
         frame.add(buttonRegisterButton);
-
-
-
-
-
-
-
 
     buttonRenew.addActionListener(new ActionListener(){
         @Override
@@ -173,8 +132,6 @@ public class proj {
                 String address = textFieldAddress.getText().trim().toUpperCase();
                 String ContactNum = textFieldContact.getText().trim();
    
-
-
                 if(lname.isEmpty()|| fname.isEmpty()|| mname.isEmpty() || bday.isEmpty() || age.isEmpty()
                 || sex.equals("") || address.isEmpty() || ContactNum.isEmpty()){
                     throw new Exception();
@@ -191,51 +148,27 @@ public class proj {
                                 JOptionPane.showMessageDialog(null, "Must be 18 years old.");
                             } else{  
                            
-                           
                             if(ContactNum.length() != 11 || !ContactNum.matches("\\d+")){
                                 JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit and must not contain letters.");
-
-
-
-
                             }else {
                                 new Renew(lname, fname, mname, suffix, bday, age, sex, address, ContactNum);
                             }
                         }
-
-
-
-
                         }catch (NumberFormatException ex){
                             JOptionPane.showMessageDialog(null, "Invalid Input for Age / Contact ", "Invalid Input", JOptionPane.ERROR_MESSAGE);
                         }
-     
                     }
                 }
-
-
-
-
             }catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
             }
             }
         });
 
-
-
-
-
-
-
-
     buttonRegisterButton.addActionListener(new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e){
-
-
             try{
-               
                 String lastname = textFieldLastName.getText().trim().toUpperCase();
                 String firstname = textFieldFirstName.getText().trim().toUpperCase();
                 String middlename = textFieldMiddleName.getText().trim().toUpperCase();
@@ -245,8 +178,6 @@ public class proj {
                 String Ssex = (String)Sex.getSelectedItem();
                 String Aaddress = textFieldAddress.getText().trim().toUpperCase();
                 String contact = textFieldContact.getText().trim();
-           
-
 
                 if(lastname.isEmpty()|| firstname.isEmpty()|| middlename.isEmpty() || birthday.isEmpty() ||
                 Aage.isEmpty() ||Ssex.isEmpty() || Aaddress.isEmpty() || contact.isEmpty()){
@@ -280,10 +211,8 @@ public class proj {
                             JOptionPane.showMessageDialog(null,"Answer all the fields.", "Empty Field", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        });
-       
-                frame.setVisible(true);
-           
+        });    
+                frame.setVisible(true);   
             }
         private static boolean isValidDate(String dateStr) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy");
@@ -293,6 +222,5 @@ public class proj {
                 } catch (DateTimeParseException e) {
                     return false;
                 }
-            }
-       
+            }       
         }
