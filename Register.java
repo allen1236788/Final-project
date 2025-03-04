@@ -2,23 +2,15 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.Font;
 
-
 public class Register{
    
     public Register(String lastname, String firstname, String middlename, String Ssuffix,
     String birthday, String Aage, String Ssex, String Aaddress, String contact){
 
-
-   
         JFrame frame=new JFrame("Registration");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(630,700);
         frame.setLayout(null);
-
-
-
-
-
 
         JLabel VehicleInfo = new JLabel("Vehicle Information");
         VehicleInfo.setBounds(50, 15, 200,100);
@@ -37,11 +29,9 @@ public class Register{
         VehicleModel.setBounds(390,180,150,30);
         frame.add(VehicleModel);
 
-
         JLabel VehicleDate=new JLabel("Vehicle Model Year: ");
         VehicleDate.setBounds(50,180,150,30);
         frame.add(VehicleDate);
-
 
         JLabel VehicleClassification=new JLabel("Vehicle Classification:");
         VehicleClassification.setBounds(280,100,300,30);
@@ -51,68 +41,41 @@ public class Register{
         VehicleLicense.setBounds(50,190,300,200);
         frame.add(VehicleLicense);
 
-
-
-
-
-
-
-
-
-
         JTextField textFieldDateReleased = new JTextField();
         textFieldDateReleased.setBounds(50,220,120,40);  
         frame.add(textFieldDateReleased);
 
-
         JTextField textFieldVehiclePlate = new JTextField();
         textFieldVehiclePlate.setBounds(50,310,200,40);  
         frame.add(textFieldVehiclePlate);
-
 
         String[]Classification={"","PRIVATE","GOVERNMENT","DIPLOMATIC"};
         JComboBox<String>vehicleClass=new JComboBox<>(Classification);
         vehicleClass.setBounds(280,130,280,40);
         frame.add(vehicleClass);
 
-
         String[]Kind={"","SEDAN","MOTORCYCLE","TRUCK","SUV", "VAN"};
         JComboBox<String>vehicleKind=new JComboBox<>(Kind);
         vehicleKind.setBounds(50,130,200,40);
         frame.add(vehicleKind);
 
-
         JTextField textFieldVehicleMake = new JTextField();
         textFieldVehicleMake.setBounds(195,220,170,40);  
         frame.add(textFieldVehicleMake);
 
-
         JTextField textFieldVehicleModel = new JTextField();
         textFieldVehicleModel.setBounds(390,220,170,40);  
         frame.add(textFieldVehicleModel);
-
-
-
-
-
-
-       
-       
+  
         JButton buttonS= new JButton("REGISTER");
         buttonS.setBounds(185,460,250,80);
         frame.add(buttonS);
 
-
-
-
         buttonS.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
-
-
-
-            try{
+               
+             try{
                 String Lname = lastname;
                 String Fname = firstname;
                 String Mname = middlename;
@@ -129,12 +92,8 @@ public class Register{
                 String Classification = (String) vehicleClass.getSelectedItem();      
                 String License = textFieldVehiclePlate.getText().trim().replace(" ", "").toUpperCase()  ;
 
-
-
-
                 if(Make.isEmpty()|| Kind.equals("")|| Model.isEmpty() || DateReleased.isEmpty() || Classification.equals("") || License.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
-
 
                  }else{
                     /* int DateR=Integer.parseInt(DateReleased); */
@@ -156,8 +115,6 @@ public class Register{
                         } catch (Exception ex){
                             throw new Exception("Please input a valid year.");
                             }
-
-
                     }
                 }
             } catch (NumberFormatException ex) {
@@ -168,15 +125,7 @@ public class Register{
             }    
         });
 
-
-
-
         frame.setVisible(true);
         }
      
             }
-
-
-
-
-
