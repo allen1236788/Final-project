@@ -111,7 +111,12 @@ public class Register{
                 String License = textFieldVehiclePlate.getText();
                 if(Make.isEmpty()|| Kind.isEmpty()|| Model.isEmpty() || DateReleased.isEmpty() || Classification.isEmpty() || License.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
-                }else{
+                }else if (Make.matches(".*\\d.*")) {
+                        JOptionPane.showMessageDialog(null, "Vehicle Make should not contain numbers.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                }else if (License.length() !=6){
+                        JOptionPane.showMessageDialog(null, "Please input a valid license plate number.");
+
+                 }else{
                     /* int DateR=Integer.parseInt(DateReleased); */
                     if(DateReleased.length()!=4){
                     JOptionPane.showMessageDialog(null, "Invalid year!");
@@ -121,11 +126,9 @@ public class Register{
                     License);
                     }
                 }
-            } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null,"Invalid Input, Please enter number only!");
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null,"Invalid Input, Please enter letters only!");
-            }
+            } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null,"Invalid Input!");
+                }
             }    
         });
 

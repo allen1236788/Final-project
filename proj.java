@@ -130,11 +130,6 @@ public class proj {
            
             String ContactNum = textFieldContact.getText().trim();
             try{
-                Long.parseLong(ContactNum);
-                if(ContactNum.length()!=11){
-                    JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit.");
-                }else{  
-        
                 String lname = textFieldLastName.getText();
                 String fname = textFieldFirstName.getText();
                 String mname = textFieldMiddleName.getText();
@@ -144,26 +139,30 @@ public class proj {
                 String sex = (String)Sex.getSelectedItem();
                 String address = textFieldAddress.getText();
                 Long contactN = Long.parseLong(ContactNum);
-               
+
                 if(lname.isEmpty()|| fname.isEmpty()|| mname.isEmpty() || bday.isEmpty() || age.isEmpty() || sex.isEmpty() || address.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
-                }else{
-                    if (!isValidDate(bday)) { 
+                
+                }else{  
+                    Long.parseLong(ContactNum);
+                    if(ContactNum.length()!=11){
+                        JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit.");
+                    }else{
+                        if (!isValidDate(bday)) { 
                         JOptionPane.showMessageDialog(null, 
                             "Invalid date format. Please use MM/DD/YY.", 
                             "Date Error", JOptionPane.ERROR_MESSAGE);
-                    } else {
+                        } else {
                         int ageint = Integer.parseInt(age); // gn convert ko pra n m read as integer 
-                        if (ageint < 17){
+                        if (ageint < 18  ){
                             JOptionPane.showMessageDialog(null, "Must be 18 years old.");
-                        }else{
+                            }else{
                             new Renew(lname, fname, mname, suffix, bday, age, sex, address, contactN);
-                        }
                             }
-                                }
-                                    }}catch (NumberFormatException ex) {
-                                        JOptionPane.showMessageDialog(null, "Enter Valid Contact Number.",
-                                        "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    }}catch (Exception ex) {
+                        JOptionPane.showMessageDialog(null, "Empty Field");
                  }
             }
         });
@@ -176,12 +175,7 @@ public class proj {
 
             String Contact = textFieldContact.getText().trim();
             try{
-                Long.parseLong(Contact);
-            if(Contact.length()!=11){
-                JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit.");
-            }else{
-
-
+               
                 String lastname = textFieldLastName.getText();
                 String firstname = textFieldFirstName.getText();
                 String middlename = textFieldMiddleName.getText();
@@ -194,13 +188,19 @@ public class proj {
 
                 if(lastname.isEmpty()|| firstname.isEmpty()|| middlename.isEmpty() || birthday.isEmpty() || Aage.isEmpty() ||Ssex.isEmpty() || Aaddress.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
+                    Long.parseLong(Contact);
+                }else{
+                    if(Contact.length()!=11){
+                        JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit.");
+
+        
                 }else if (!isValidDate(birthday)) { 
                         JOptionPane.showMessageDialog(null, 
                             "Invalid date format. Please use MM/DD/YY.", 
                             "Date Error", JOptionPane.ERROR_MESSAGE);
                     } else{
                         int Aageint = Integer.parseInt(Aage); // gn convert ko pra n m read as integer 
-                    if (Aageint < 17){
+                    if (Aageint < 18){
                        JOptionPane.showMessageDialog(null, "Must be 18 years old"); 
                      
                         }else{ 
@@ -209,8 +209,7 @@ public class proj {
                     }
                 }
             }catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Enter Valid Contact Number.",
-                        "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null,"Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
