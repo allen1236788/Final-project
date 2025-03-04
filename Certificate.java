@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.Font;
@@ -9,14 +8,13 @@ import java.awt.Font;
 public class Certificate {
 
 
-
-
-        // Constructor to initialize values
     public Certificate(String Lname, String Fname, String Mname, String Suffix,
-    String Bday, String Age, String Sex, String Address, Long Contact, String Kind,
+    String Bday, String Age, String Sex, String Address, String Contact, String Kind,
     String Make, String Model, String DateReleased, String Classification,
     String License) {
            
+
+
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter date = DateTimeFormatter.ofPattern("MM/dd/yy");
         String dateOfReg = currentDate.format(date);  
@@ -32,7 +30,8 @@ public class Certificate {
         frame.setLayout(null);
        
         JLabel COR = new JLabel("Certificate of Registration");
-        COR.setBounds(230,20,200,100);
+        COR.setBounds(215,20,250,100);
+        COR.setFont(new Font("Arial", Font.BOLD, 17));
         frame.add(COR);
        
         JLabel labelDateRegistered=new JLabel("Date of Registration: " + dateOfReg);
@@ -45,13 +44,21 @@ public class Certificate {
         frame.add(labelRenewalDate);
 
 
-        JLabel labelAmount=new JLabel("Amount: PHP 2000.00");
+        JLabel labelAmount=new JLabel("Amount: PHP 3500.00");
         labelAmount.setBounds(430,507,532,45);
         frame.add(labelAmount);
 
 
+
+
+
+
+
+
+
+
         JTextField textFieldName=new JTextField("   Name: " + Fname + " " + Mname + " " + Lname + " " + Suffix);
-        textFieldName.setBounds(40,183,444,45); 
+        textFieldName.setBounds(40,183,444,45);
         textFieldName.setEditable(false);
         frame.add(textFieldName);
        
@@ -66,10 +73,14 @@ public class Certificate {
         frame.add(textFieldBday);
 
 
+
+
         JTextField textFieldAge=new JTextField("   Age: " + Age);
         textFieldAge.setBounds(208,226,98,45);
         textFieldAge.setEditable(false);
         frame.add(textFieldAge);
+
+
 
 
         JTextField textFieldContact=new JTextField("   Contact Number: " + Contact);
@@ -98,10 +109,14 @@ public class Certificate {
         frame.add(textFieldLicense);
 
 
+
+
         JTextField textFieldMake=new JTextField("   Vehicle Make: " + Make);
         textFieldMake.setBounds(40,400,267,45);
         textFieldMake.setEditable(false);
         frame.add(textFieldMake);
+
+
 
 
         JTextField textFieldModel=new JTextField("   Vehicle Model: " + Model);
@@ -115,12 +130,12 @@ public class Certificate {
         frame.add(textFieldDateReleased);
        
    
-
-
         frame.setVisible(true);
    
     }
 }
+
+
 
 
 

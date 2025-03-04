@@ -1,7 +1,6 @@
 import javax.swing.*;
+import java.awt.Color;
 import java.awt.event.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -14,28 +13,50 @@ public class proj {
         frame.setSize(630,700);
         frame.setLayout(null);
  
+
+
+
+
+        JLabel PersonalInfo = new JLabel("Personal Information");
+        PersonalInfo.setBounds(50, 60, 150,100);
+        PersonalInfo.setFont(new Font("Arial", Font.BOLD, 13));
+        frame.add(PersonalInfo);
+
+
         JLabel Welcome = new JLabel("Vehicle Registration Form");
-        Welcome.setBounds(230,0,200,100);
+        Welcome.setBounds(200,0,200,100);
+        Welcome.setFont(new Font("Arial", Font.BOLD, 16));
         frame.add(Welcome);
 
 
-        JLabel labelFirstName=new JLabel("First Name: ");
-        labelFirstName.setBounds(340,180,150,20);
+        JLabel InstructionOne=new JLabel("* If no available answer,type N/A for all fields except for 'Suffix'. For 'Suffix' leave it blank");
+        InstructionOne.setBounds(50,450,600,30);
+        InstructionOne.setFont(new Font("Arial",Font.ITALIC,12));
+        InstructionOne.setForeground(Color.RED);
+        frame.add(InstructionOne);
+
+
+        JLabel InstructionTwo=new JLabel("* Double check your information as you cannot go back to this tab");
+        InstructionTwo.setBounds(50,480,500,30);
+        InstructionTwo.setFont(new Font("Arial",Font.ITALIC,12));
+        InstructionTwo.setForeground(Color.RED);
+        frame.add(InstructionTwo);
+       
+        JLabel labelFirstName=new JLabel("First Name");
+        labelFirstName.setBounds(340,200,150,20);
         frame.add(labelFirstName);
        
-        JLabel labelMiddleName=new JLabel("Middle Name: ");
-        labelMiddleName.setBounds(210,180,150,20);
+        JLabel labelMiddleName=new JLabel("Middle Name");
+        labelMiddleName.setBounds(214,200,150,20);
         frame.add(labelMiddleName);
  
-        JLabel labelLastName=new JLabel("Last Name: ");
-        labelLastName.setBounds(85,180,100,20);
+        JLabel labelLastName=new JLabel("Last Name");
+        labelLastName.setBounds(89,200,100,20);
         frame.add(labelLastName);
 
 
-
-
-        JLabel labelSuffix=new JLabel("SUFFIX ");
-        labelSuffix.setBounds(503,180,50,20);
+        JLabel labelSuffix=new JLabel("Suffix ");
+        labelSuffix.setBounds(506,200,50,20);
         frame.add(labelSuffix);
        
         JLabel labelBday=new JLabel("Birthday (MM/DD/YY): ");
@@ -62,23 +83,29 @@ public class proj {
        
 
 
+
+
+
+
+
+
         JTextField textFieldLastName=new JTextField();
-        textFieldLastName.setBounds(50,120,150,50);
+        textFieldLastName.setBounds(50,140,150,50);
         frame.add(textFieldLastName);
 
 
-         JTextField textFieldMiddleName=new JTextField();
-        textFieldMiddleName.setBounds(200,120,100,50);
+        JTextField textFieldMiddleName=new JTextField();
+        textFieldMiddleName.setBounds(200,140,100,50);
         frame.add(textFieldMiddleName);
 
 
         JTextField textFieldFirstName=new JTextField();
-        textFieldFirstName.setBounds(300,120,150,50);
+        textFieldFirstName.setBounds(300,140,150,50);
         frame.add(textFieldFirstName);
 
 
         JTextField textFieldSuffix=new JTextField();
-        textFieldSuffix.setBounds(500,120,50,50);
+        textFieldSuffix.setBounds(500,140,50,50);
         frame.add(textFieldSuffix);
        
         JTextField textFieldBday=new JTextField();
@@ -90,8 +117,14 @@ public class proj {
         frame.add(textFieldAge);
 
 
-        //have to make the sex scrollable  
-        String[]items={"Male","Female","Other"};
+
+
+
+
+
+
+       
+        String[]items={"","MALE","FEMALE","OTHER"};
         JComboBox<String> Sex=new JComboBox<>(items);
         Sex.setBounds(190,306,240,30);
         frame.add(Sex);
@@ -107,65 +140,93 @@ public class proj {
  
  
         JButton buttonRenew= new JButton("RENEW");
-        buttonRenew.setBounds(80,500,180,70);
+        buttonRenew.setBounds(80,530,180,70);
         frame.add(buttonRenew);
 
 
+
+
         JButton buttonRegisterButton= new JButton("REGISTER");
-        buttonRegisterButton.setBounds(350,500,180,70);
+        buttonRegisterButton.setBounds(350,530,180,70);
         frame.add(buttonRegisterButton);
 
 
-        JTextArea textArea= new JTextArea();
-        textArea.setBounds(0,0,0,0);
-        textArea.setEditable(false);
-        frame.add(textArea);
+
+
+
 
 
 
     buttonRenew.addActionListener(new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e){
-           
-           
-            String ContactNum = textFieldContact.getText().trim();
-            try{
-                String lname = textFieldLastName.getText();
-                String fname = textFieldFirstName.getText();
-                String mname = textFieldMiddleName.getText();
-                String suffix = textFieldSuffix.getText();
-                String bday = textFieldBday.getText();
-                String age = textFieldAge.getText();
-                String sex = (String)Sex.getSelectedItem();
-                String address = textFieldAddress.getText();
-                Long contactN = Long.parseLong(ContactNum);
 
-                if(lname.isEmpty()|| fname.isEmpty()|| mname.isEmpty() || bday.isEmpty() || age.isEmpty() || sex.isEmpty() || address.isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
-                
+
+            try{
+                String lname = textFieldLastName.getText().trim().toUpperCase();
+                String fname = textFieldFirstName.getText().trim().toUpperCase();
+                String mname = textFieldMiddleName.getText().trim().toUpperCase();
+                String suffix = textFieldSuffix.getText().trim().toUpperCase();
+                String bday = textFieldBday.getText().trim();
+                String age = textFieldAge.getText().trim();
+                String sex = (String)Sex.getSelectedItem();
+                String address = textFieldAddress.getText().trim().toUpperCase();
+                String ContactNum = textFieldContact.getText().trim();
+   
+
+
+                if(lname.isEmpty()|| fname.isEmpty()|| mname.isEmpty() || bday.isEmpty() || age.isEmpty()
+                || sex.equals("") || address.isEmpty() || ContactNum.isEmpty()){
+                    throw new Exception();
+                   
                 }else{  
-                    Long.parseLong(ContactNum);
-                    if(ContactNum.length()!=11){
-                        JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit.");
-                    }else{
-                        if (!isValidDate(bday)) { 
-                        JOptionPane.showMessageDialog(null, 
-                            "Invalid date format. Please use MM/DD/YY.", 
+                    if (!isValidDate(bday)) {
+                        JOptionPane.showMessageDialog(null,
+                            "Invalid date format. Please use MM/DD/YY.",
                             "Date Error", JOptionPane.ERROR_MESSAGE);
-                        } else {
-                        int ageint = Integer.parseInt(age); // gn convert ko pra n m read as integer 
-                        if (ageint < 18  ){
-                            JOptionPane.showMessageDialog(null, "Must be 18 years old.");
-                            }else{
-                            new Renew(lname, fname, mname, suffix, bday, age, sex, address, contactN);
+                    } else {            
+                        try{
+                            int ageint = Integer.parseInt(age);
+                            if(ageint < 18){
+                                JOptionPane.showMessageDialog(null, "Must be 18 years old.");
+                            } else{  
+                           
+                           
+                            if(ContactNum.length() != 11 || !ContactNum.matches("\\d+")){
+                                JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit and must not contain letters.");
+
+
+
+
+                            }else {
+                                new Renew(lname, fname, mname, suffix, bday, age, sex, address, ContactNum);
                             }
                         }
+
+
+
+
+                        }catch (NumberFormatException ex){
+                            JOptionPane.showMessageDialog(null, "Invalid Input for Age / Contact ", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                        }
+     
                     }
-                    }}catch (Exception ex) {
-                        JOptionPane.showMessageDialog(null, "Empty Field");
-                 }
+                }
+
+
+
+
+            }catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
+            }
             }
         });
+
+
+
+
+
+
 
 
     buttonRegisterButton.addActionListener(new ActionListener(){
@@ -173,43 +234,50 @@ public class proj {
         public void actionPerformed(ActionEvent e){
 
 
-            String Contact = textFieldContact.getText().trim();
             try{
                
-                String lastname = textFieldLastName.getText();
-                String firstname = textFieldFirstName.getText();
-                String middlename = textFieldMiddleName.getText();
-                String Ssuffix = textFieldSuffix.getText();
+                String lastname = textFieldLastName.getText().trim().toUpperCase();
+                String firstname = textFieldFirstName.getText().trim().toUpperCase();
+                String middlename = textFieldMiddleName.getText().trim().toUpperCase();
+                String Ssuffix = textFieldSuffix.getText().trim().toUpperCase();
                 String birthday = textFieldBday.getText();
                 String Aage = textFieldAge.getText();
                 String Ssex = (String)Sex.getSelectedItem();
-                String Aaddress = textFieldAddress.getText();
-                Long CcontactN = Long.parseLong(Contact);
+                String Aaddress = textFieldAddress.getText().trim().toUpperCase();
+                String contact = textFieldContact.getText().trim();
+           
 
-                if(lastname.isEmpty()|| firstname.isEmpty()|| middlename.isEmpty() || birthday.isEmpty() || Aage.isEmpty() ||Ssex.isEmpty() || Aaddress.isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
-                    Long.parseLong(Contact);
+
+                if(lastname.isEmpty()|| firstname.isEmpty()|| middlename.isEmpty() || birthday.isEmpty() ||
+                Aage.isEmpty() ||Ssex.isEmpty() || Aaddress.isEmpty() || contact.isEmpty()){
+                    throw new Exception();
                 }else{
-                    if(Contact.length()!=11){
-                        JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit.");
-
-        
-                }else if (!isValidDate(birthday)) { 
-                        JOptionPane.showMessageDialog(null, 
-                            "Invalid date format. Please use MM/DD/YY.", 
+                    if (!isValidDate(birthday)) {
+                        JOptionPane.showMessageDialog(null,
+                            "Invalid date format. Please use MM/DD/YY.",
                             "Date Error", JOptionPane.ERROR_MESSAGE);
-                    } else{
-                        int Aageint = Integer.parseInt(Aage); // gn convert ko pra n m read as integer 
-                    if (Aageint < 18){
-                       JOptionPane.showMessageDialog(null, "Must be 18 years old"); 
-                     
-                        }else{ 
-                                new Register(lastname, firstname, middlename, Ssuffix, birthday, Aage, Ssex, Aaddress, CcontactN);     
+                    }
+                    else{
+                        try{
+                            int Aageint = Integer.parseInt(Aage);
+                            if (Aageint < 18){
+                                JOptionPane.showMessageDialog(null, "Must be 18 years old");
+                            }else{
+                                if(contact.length() != 11 || !contact.matches("\\d+")){
+                                    JOptionPane.showMessageDialog(null, "Contact Number must be 11 digit and must not contain letters.");
+   
+                                }else{
+                                    new Register(lastname, firstname, middlename, Ssuffix, birthday, Aage, Ssex, Aaddress, contact);}
+                            }
+                       
+                        }catch (NumberFormatException ex){
+                            JOptionPane.showMessageDialog(null, "Invalid Input for Age / Contact ",
+                "Invalid Input", JOptionPane.ERROR_MESSAGE);
                         }
                     }
                 }
-            }catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null,"Answer all the fields", "Empty Field", JOptionPane.ERROR_MESSAGE);
+            }catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null,"Answer all the fields.", "Empty Field", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -228,4 +296,3 @@ public class proj {
             }
        
         }
-

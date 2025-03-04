@@ -1,40 +1,34 @@
 import javax.swing.*;
-import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.Font;
- 
-
-
 
 
 public class CertificateRenew {
 
-
-
-
-        // Constructor to initialize values
     public CertificateRenew(String Lname, String Fname, String Mname, String Suffix,
-    String Bday, String Age, String Sex, String Address, Long Contact, String Kind,
+    String Bday, String Age, String Sex, String Address, String Contact, String Kind,
     String Make, String Model, String DateReleased, String Classification, String InsuranceCompany,
     String License, String OldCertNum) {
            
+       
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter date = DateTimeFormatter.ofPattern("MM/dd/yy");
         String dateOfReg = currentDate.format(date);  
         LocalDate renewalD = currentDate.plusYears(1);
         String renewalDate = date.format(renewalD);
 
-
         JFrame frame=new JFrame("Certificate of Registration");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(630,700);
         frame.setLayout(null);
-       
+
         JLabel COR = new JLabel("Certificate of Registration");
-        COR.setBounds(230,0,200,100);
+        COR.setBounds(215,0,250,100);
+        COR.setFont(new Font("Arial", Font.BOLD, 17));
         frame.add(COR);
-       
+
+
         JLabel labelDateRegistered=new JLabel("Date of Registration: " + dateOfReg);
         labelDateRegistered.setBounds(40,90,532,45);
         frame.add(labelDateRegistered);
@@ -49,9 +43,8 @@ public class CertificateRenew {
         labelAmount.setBounds(430,507,532,45);
         frame.add(labelAmount);
 
-
         JTextField textFieldName=new JTextField("   Name: " + Fname + " " + Mname + " " + Lname + " " + Suffix);
-        textFieldName.setBounds(40,183,444,45); 
+        textFieldName.setBounds(40,183,444,45);
         textFieldName.setEditable(false);
         frame.add(textFieldName);
        
@@ -115,7 +108,7 @@ public class CertificateRenew {
         frame.add(textFieldDateReleased);
        
         JTextField textFieldOldCertNum=new JTextField("   Old Certificate Number: " + OldCertNum);
-        textFieldOldCertNum.setBounds(40,140,532,45); 
+        textFieldOldCertNum.setBounds(40,140,532,45);
         textFieldOldCertNum.setEditable(false);
         frame.add(textFieldOldCertNum);
        
@@ -124,13 +117,8 @@ public class CertificateRenew {
         textFieldInsuranceCompany.setEditable(false);
         frame.add(textFieldInsuranceCompany);
 
-
-
-
         frame.setVisible(true);
    
     }
 }
-
-
 
