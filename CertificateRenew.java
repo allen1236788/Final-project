@@ -3,7 +3,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.Font;
 
-
 public class CertificateRenew {
 
     public CertificateRenew(String Lname, String Fname, String Mname, String Suffix,
@@ -11,7 +10,6 @@ public class CertificateRenew {
     String Make, String Model, String DateReleased, String Classification, String InsuranceCompany,
     String License, String OldCertNum) {
            
-       
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter date = DateTimeFormatter.ofPattern("MM/dd/yy");
         String dateOfReg = currentDate.format(date);  
@@ -28,16 +26,13 @@ public class CertificateRenew {
         COR.setFont(new Font("Arial", Font.BOLD, 17));
         frame.add(COR);
 
-
         JLabel labelDateRegistered=new JLabel("Date of Registration: " + dateOfReg);
         labelDateRegistered.setBounds(40,90,532,45);
         frame.add(labelDateRegistered);
 
-
         JLabel labelRenewalDate=new JLabel("Renewal Date: " + renewalDate);
         labelRenewalDate.setBounds(40,507,532,45);
         frame.add(labelRenewalDate);
-
 
         JLabel labelAmount=new JLabel("Amount: PHP 2000.00");
         labelAmount.setBounds(430,507,532,45);
@@ -58,12 +53,10 @@ public class CertificateRenew {
         textFieldBday.setEditable(false);
         frame.add(textFieldBday);
 
-
         JTextField textFieldAge=new JTextField("   Age: " + Age);
         textFieldAge.setBounds(208,226,98,45);
         textFieldAge.setEditable(false);
         frame.add(textFieldAge);
-
 
         JTextField textFieldContact=new JTextField("   Contact Number: " + Contact);
         textFieldContact.setBounds(305,226,267,45);
@@ -90,12 +83,10 @@ public class CertificateRenew {
         textFieldLicense.setEditable(false);
         frame.add(textFieldLicense);
 
-
         JTextField textFieldMake=new JTextField("   Vehicle Make: " + Make);
         textFieldMake.setBounds(40,400,267,45);
         textFieldMake.setEditable(false);
         frame.add(textFieldMake);
-
 
         JTextField textFieldModel=new JTextField("   Vehicle Model: " + Model);
         textFieldModel.setBounds(305,400,267,45);
@@ -121,4 +112,3 @@ public class CertificateRenew {
    
     }
 }
-
