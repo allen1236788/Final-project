@@ -1,0 +1,235 @@
+/* ===== General Body ===== */
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* prevent scroll */
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #142f79; /* outer margin color (same as top bar) */
+}
+
+/* ===== Top Bar ===== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #142f79;
+  color: white;
+  height: 60px;
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", monospace;
+}
+
+.logo {
+  height: 45px;
+  margin-right: 15px;
+}
+
+#headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===== Header Buttons ===== */
+#menuButtons {
+  display: flex;
+  gap: 10px;
+}
+
+#menuButtons button {
+  padding: 8px 14px;
+  background: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+#menuButtons button:hover {
+  background: #5c6bc0;
+}
+
+/* ===== Layout Container ===== */
+#content {
+  display: flex;
+  height: calc(100vh - 80px); /* full height minus header and margins */
+  width: calc(100% - 20px);
+  margin: 10px;
+  background: #081966;
+  border-radius: 7px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+/* ===== Sidebar ===== */
+#sidebar {
+  width: 380px;
+  background: #1c2340;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+/* Sidebar section headers */
+#sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #bbb;
+  text-transform: uppercase;
+}
+
+/* ===== Inputs, Selects, Buttons ===== */
+#sidebar input,
+#sidebar select,
+#sidebar input[type="file"],
+#sidebar button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #2a3561;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+#sidebar input::placeholder {
+  color: #aaa;
+}
+
+#sidebar select option {
+  background: #1c2340;
+  color: #fff;
+}
+
+/* Buttons */
+#sidebar button {
+  background: #3f51b5;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+#sidebar button:hover {
+  background: #5c6bc0;
+}
+
+/* File upload button */
+#sidebar input[type="file"]::file-selector-button {
+  background: #394885;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+#sidebar input[type="file"]::file-selector-button:hover {
+  background: #5c6bc0;
+}
+
+/* Disabled clear buttons */
+.clear:disabled {
+  background: #444 !important;
+  color: #999 !important;
+  cursor: not-allowed;
+}
+
+/* ===== Remove Menu Styling ===== */
+#removeMenu select,
+#removeMenu button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #2a3561;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+#removeMenu button {
+  background: #3f51b5;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+#removeMenu button:hover {
+  background: #5c6bc0;
+}
+
+#removeMenu select option {
+  background: #1c2340;
+  color: #fff;
+}
+
+/* ===== Map ===== */
+#map {
+  flex-grow: 1;
+  border-radius: 7px;
+  margin: 5px;
+}
+
+/* ===== Messages ===== */
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+/* ===== Menu Transitions ===== */
+#addMenu,
+#add_house,
+#add_land,
+#removeMenu {
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ===== Side-by-side rows ===== */
+.info {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.info input,
+.info select,
+.info button {
+  flex: 1;
+}
+
+/* ===== Show Section Animation ===== */
+.show-section {
+  display: block !important;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

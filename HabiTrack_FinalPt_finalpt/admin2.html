@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HabiTrack Admin</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="css/admin2.css"> <!-- external CSS -->
+</head>
+<body>
+  <header>
+    <div id="headerLeft">
+      <img src="assets/Logo.png" alt="Logo" class="logo">
+      <h1>HabiTrack Admin</h1>
+    </div>
+    <div id="menuButtons">
+      <button id="showAddMenu">Add Property</button>
+      <button id="showRemoveMenu">Remove Property</button>
+      <button id="back">Back</button>
+    </div>
+  </header>
+
+  <div id="content">
+    <div id="sidebar">
+
+      <!-- ADD PROPERTY MENU -->
+      <div id="addMenu">
+        <h2>Add New Property</h2>
+        <select name="propType" id="propType" required>
+          <option value="" disabled selected>Select Property Type</option>
+          <option value="House">House</option>
+          <option value="Land">Land</option>
+        </select>
+      </div>
+        
+      <!-- HOUSE FORM -->
+      <div id="add_house">
+        <h2>House Details</h2>
+        <div class="info">
+          <input type="text" id="LAT" name="lat" placeholder="Latitude" required>
+          <input type="text" id="LNG" name="lng" placeholder="Longitude" required>
+        </div>
+
+        <div>
+          <input type="text" id="NAME" name="name" placeholder="Name" required>
+          <input type="text" id="LOCATION" name="location" placeholder="Location" required>
+        </div>
+
+        <div class="info">
+          <input type="number" id="PRICE" name="price" placeholder="Price" required>
+          <select name="price_range" id="PRICE_RANGE" required>
+            <option value="" disabled selected>Select Price Range</option>
+            <option value="500k - 1M">₱500k - ₱1M</option>
+            <option value="1M - 2M">₱1M - ₱2M</option>
+            <option value="2M - 3M">₱2M - ₱3M</option>
+            <option value="3M - 4M">₱3M - ₱4M</option>
+            <option value="4M - 5M">₱4M - ₱5M</option>
+          </select>
+        </div>
+
+        <div class="info">
+          <input type="number" id="STOREY" name="storey" placeholder="Storey">
+          <input type="number" id="BEDROOM" name="bedroom" placeholder="Bedroom">
+          <input type="number" id="TANDB" name="tandb" placeholder="Toilet & Bath">
+        </div>
+
+        <div class="info">
+          <input type="text" id="FLOOR" name="floor" placeholder="Floor Area (sqm)">
+          <input type="text" id="LOT" name="lot" placeholder="Lot Area (sqm)">
+        </div>
+
+        <input type="file" id="IMAGE" name="image" accept="image/*" required>
+
+        <div class="info">
+          <button id="saveHouse">Save</button>
+          <button id="clearHouse" class="clear">Clear</button>
+        </div>
+      </div>
+
+      <!-- LAND FORM -->
+      <div id="add_land">
+        <h2>Land Details</h2>
+        <div class="info">
+          <input type="text" id="LAT_L" name="lat" placeholder="Latitude" required>
+          <input type="text" id="LNG_L" name="lng" placeholder="Longitude" required>
+        </div>
+
+        <div>
+          <input type="text" id="NAME_L" name="name" placeholder="Name" required>
+          <input type="text" id="LOCATION_L" name="location" placeholder="Location" required>
+        </div>
+
+        <div class="info">
+          <input type="number" id="PRICE_L" name="price" placeholder="Price" required>
+          <select name="price_range" id="PRICE_RANGE_L" required>
+            <option value="" disabled selected>Select Price Range</option>
+            <option value="500k - 1M">₱500k - ₱1M</option>
+            <option value="1M - 2M">₱1M - ₱2M</option>
+            <option value="2M - 3M">₱2M - ₱3M</option>
+            <option value="3M - 4M">₱3M - ₱4M</option>
+            <option value="4M - 5M">₱4M - ₱5M</option>
+          </select>
+        </div>
+
+
+        <div class="info">
+          <input type="text" id="LOT_L" name="lot" placeholder="Lot Area (sqm)">
+          <select name="size_range" id="SIZE_RANGE" required>
+            <option value="" disabled selected>Select Size Range</option>
+            <option value="50 - 100 sqm">50 - 100 sqm</option>
+            <option value="100 - 200 sqm">100 - 200 sqm</option>
+            <option value="200+ sqm">200+ sqm</option>
+          </select>
+        </div>
+
+        <input type="file" id="IMAGE_L" name="image" accept="image/*" required>
+
+        <div class="info">
+          <button id="saveLand">Save</button>
+          <button id="clearLand" class="clear">Clear</button>
+        </div>
+      </div>
+
+      <!-- REMOVE PROPERTY MENU before ni-->
+      <!-- <div id="removeMenu" style="display:none;">
+        <h2>Remove Property</h2>
+        <select id="propertyList">
+          <option value="">Loading...</option>
+        </select>
+        <button id="deleteProperty">Delete</button>
+      </div> -->
+
+      <!-- REMOVE PROPERTY MENU new ni-->
+      <div id="removeMenu" style="display:none;">
+        <h2>Remove Property</h2>
+
+        <!-- Choose property type first (House or Land) --> <!-- new from chat -->
+        <select id="removeType"> <!-- new from chat -->
+          <option value="" disabled selected>Select Property Type</option> <!-- new from chat -->
+          <option value="House">House</option> <!-- new from chat -->
+          <option value="Land">Land</option> <!-- new from chat -->
+        </select> <!-- new from chat -->
+
+        <!-- After selecting type, show available properties --> <!-- new from chat -->
+        <select id="propertyList"> <!-- new from chat -->
+          <option value="">Please select type first</option> <!-- new from chat -->
+        </select> <!-- new from chat -->
+
+        <button id="deleteProperty">Delete</button>
+      </div>
+
+      <div id="message"></div>
+    </div>
+
+    <div id="map"></div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/admin2.js"></script> <!-- external JS -->
+</body>
+</html>

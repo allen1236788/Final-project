@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="login-container">
+    <!-- Left Side -->
+    <div class="left-panel">
+      <img src="assets/Logo.png" alt="Logo" class="logo">
+      <h1>HabiTrack</h1>
+    </div>
+
+    <!-- Right Side -->
+    <div class="right-panel">
+      <form id="loginForm" class="login-box">
+        <div class="avatar">
+          <img src="assets/adminIcon.png" alt="User Icon">
+        </div>
+
+        <div class="input-group">
+          <input type="text" id="user" placeholder="Username" required>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <p id="message"></p>
+        <div class="btn">
+        <button type="submit" class="login-btn">Login</button>
+        <button type="submit" id="back-btn" onclick="window.location.href='index.html'">Back</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

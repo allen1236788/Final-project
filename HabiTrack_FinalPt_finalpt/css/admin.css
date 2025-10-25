@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #05124e, #223691);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Container */
+.login-container {
+  display: flex;
+  width: 900px;
+  height: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Left Panel */
+.left-panel {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.left-panel .logo {
+  width: 350px;
+  margin-bottom: 5px;
+}
+
+.left-panel h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Right Panel */
+.right-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+/* Glass Login Box */
+.login-box {
+  width: 80%;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button container */
+.btn {
+  display: flex; /* new from chat */
+  justify-content: center; /* new from chat */
+  align-items: center; /* new from chat */
+  gap: 15px; /* new from chat */
+  margin-top: 20px; /* new from chat */
+}
+
+/* Unified button styling */
+.login-btn,
+#back-btn {
+  background-color: #24331f;/* same color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 130px; /* new from chat */
+  height: 45px; /* new from chat */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* new from chat */
+}
+
+/* Hover effect (same for both) */
+.login-btn:hover,
+#back-btn:hover {
+  background-color: #24331f; /* same hover */
+  transform: scale(1.03); /* new from chat */
+}
+
+/* Avatar */
+.avatar {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #223691;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+/* Inputs */
+.input-group {
+  margin: 20px 0;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  color: #333;
+}
+
+#message {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+
+
+/* Style for the HabiTrack title */
+.left-panel h1 {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #e0e6ff;            /* soft white-blue glow */
+  text-shadow: 0 0 10px rgba(104, 144, 255, 0.7), 
+               0 0 20px rgba(80, 120, 255, 0.5);
+  margin-top: 0px;
+  text-align: center;
+}

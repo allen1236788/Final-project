@@ -1,0 +1,298 @@
+body {
+  height: 100%;
+  margin: 2;
+  overflow: hidden;   /* prevent scroll */
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #142f79;  /* outer margin color (same as header) */
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #142f79;
+  color: white;
+  height: 54px;
+}
+
+.top-bar .logo {
+  height: 80px;
+  margin-right: 25px;
+  margin-left: 4px;
+}
+
+.top-bar h1 {
+  font-size: 45px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #e0e6ff;
+  text-shadow: 0 0 10px rgba(104, 144, 255, 0.7), 
+               0 0 20px rgba(80, 120, 255, 0.5);
+  margin-right: 5px;
+}
+
+/* Layout container */
+#app {
+  display: flex;
+  height: calc(100vh - 75px - 10px); /* full height minus header and vertical margins */
+  width: calc(100% - 35px);          /* full width minus horizontal margins */
+  margin: 10px;                      /* space around layout */
+  background: #081966;               /* light background inside */
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+/* Sidebar */
+#sidebar {
+  width: 280px;
+  background: #1c2340;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* Section titles */
+#sidebar h3 {
+  margin: 2px 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #bbb;
+  text-transform: uppercase;
+}
+
+/* Dropdowns */
+.dropdown {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: #2a3561;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+
+  /* custom arrow */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+
+.dropdown option {
+  background: #1c2340;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Row container (side-by-side controls) */
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  
+}
+
+.row .dropdown,
+.row button {
+  flex: 1;
+}
+
+/* Buttons */
+.row button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #3f51b5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.row button:hover
+{
+  background: #5c6bc0;
+}
+
+.admin{
+  gap: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #3f51b5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.admin:hover{
+  background: #5c6bc0;
+}
+
+/* Map */
+#map {
+  flex-grow: 1;
+  border-radius: 7px;
+  margin: 4px;
+}
+/* Hide both sections by default *//* Hide both sections at first */
+#houseSection,
+#landSection {
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Optional fade-in animation */
+.show-section {
+  display: block !important;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#houseSection, #landSection {
+  display: none;
+}
+
+/* --- Diri start sng s display --- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  justify-content: flex-end;
+  align-items: stretch;
+  border-radius: 20px;
+}
+
+/* --- Active Modal --- */
+.modal.active {
+  display: flex;
+}
+
+/* --- Modal Content --- */
+.modal-content {
+  background: rgba(28, 35, 64);
+  color: white;
+  width: 400px;
+  height: 100%;
+  padding: 0;
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  position: relative;
+  text-align: left;
+}
+
+/* --- Close Button --- */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  z-index: 10001;
+}
+.close:hover {
+  color: #ff5555;
+}
+#clearButton {
+  margin-bottom: 10px;
+}
+
+
+
+/* --- Contents --- */
+.image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.image-container img {
+  width: 100%;
+  height: 250px;
+  display: block;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Gradient fade from image to container */
+.image-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; 
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #1c2340 100%);
+  pointer-events: none;
+}
+
+
+/* --- Text contents dalom sng image --- */
+.text-container {
+  padding: 15px 20px;
+  color: white;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.text-container h2 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.text-container hr {
+  border: none;
+  height: 2px;
+  width: 100%;
+  margin: 12px 0;
+  border-radius: 5px;
+  background: linear-gradient(
+    to right,
+    #6c63ff 0%,   /* the line gradient */
+    rgba(108, 99, 255, 0.5) 60%,  /* fades */
+    transparent 100%  /* fully fades out sa right */
+  );
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.location-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  object-fit: cover;
+  
+}
+
+
+

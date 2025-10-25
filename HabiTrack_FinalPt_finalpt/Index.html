@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Map UI</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/Style.css" />
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <img src="assets/Logo.png" alt="Logo" class="logo">
+    <h1>HabiTrack</h1>
+  </header>
+
+  <div id="app">
+    <!-- Sidebar -->
+    <div id="sidebar">
+  <select id="propertyType" class="dropdown">
+    <option value="" disabled selected>Select Property Type</option>
+    <option value="house">House</option>
+    <option value="land">Land</option>
+  </select>
+
+  <!-- House section -->
+  <div id="houseSection">
+    <h3>House</h3>
+
+    <select id="houseLocation" class="dropdown">
+      <option value="" disabled selected>Location</option>
+    </select>
+
+     <div class="row">
+        <select id="storeySelect" class="dropdown">
+          <option disabled selected>Storey</option>
+          <option>1</option>
+          <option>2</option>
+        </select>
+
+        <select id="bedroomSelect" class="dropdown">
+          <option disabled selected>Bedroom</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+
+    <div class="row">
+      <select id="housePrice" class="dropdown">
+        <option value="" disabled selected>Price Range</option>
+          <option>₱1M - ₱2M</option>
+          <option>₱2M - ₱3M</option>
+          <option>₱3M - ₱4M</option>
+          <option>₱4M - ₱5M</option>
+      </select>
+
+      
+       <select id="tandb" class="dropdown">
+          <option disabled selected>T & B</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+    </div>
+
+    <select id="houseName" class="dropdown">
+      <option value="" disabled selected>Property Name</option>
+    </select>
+
+    <div class="row">
+      <button id="searchhh">SEARCH</button>
+        <button id="detail">View Details</button>
+    </div>
+  </div>
+
+  <!-- Land section -->
+  <div id="landSection">
+    <h3>Land</h3>
+
+    <select id="landLocation" class="dropdown">
+      <option value="" disabled selected>Location</option>
+    </select>
+
+    <select id="lotName" class="dropdown">
+      <option value="" disabled selected>Property Name</option>
+    </select>
+
+      <div class="row">
+        <select id="landPrice" class="dropdown">
+          <option value="" disabled selected>Price Range</option>
+          <option>₱500k - ₱1M</option>
+          <option>₱1M - ₱2M</option>
+          <option>₱2M - ₱3M</option>
+          <option>₱3M - ₱4M</option>
+          <option>₱4M - ₱5M</option>
+        </select>
+
+        <select id="landSize" class="dropdown">
+          <option value="" disabled selected>Size Range</option>
+          <option>50 - 100 sqm</option>
+          <option>100 - 200 sqm</option>
+          <option>200+ sqm</option>
+        </select>
+      </div>
+
+    <div class="row">
+      <button id="search">SEARCH</button>
+      <button id="detailss">View Details</button>
+    </div>
+  </div>
+
+
+  <button id="clearButton" class="btn admin">Clear</button>
+  <button id="admin" class="btn admin">ADMIN</button>
+
+</div>
+
+
+      <!-- Location dropdown -->
+      
+  
+<!-- div isa isa ang land kag house tapos kung mag pili ang house matago ang land vice versa -->
+      <!-- Land Section -->
+      
+
+    <!-- Map -->
+    <div id="map"></div>
+  </div>
+
+  <!-- House Details Panel -->
+<div id="houseModal" class="modal">
+  <div class="modal-content"></div>
+</div>
+
+<!-- Land Details Panel -->
+<div id="landModal" class="modal">
+  <div class="modal-content"></div>
+</div>
+
+  
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/script.js"></script>
+</html>
